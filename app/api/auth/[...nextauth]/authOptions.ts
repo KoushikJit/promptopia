@@ -16,7 +16,7 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
       const isAllowedToSignIn = true;
-
+      console.log("sign in callback was called!")
       await createUserIfNotExist(user, profile);
       return true;
     },

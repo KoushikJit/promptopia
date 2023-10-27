@@ -29,8 +29,8 @@ export const authOptions: NextAuthOptions = {
 };
 
 async function createUserIfNotExist(user: AdapterUser, profile: Profile) {
-  console.log(JSON.stringify(user));
-  console.log(JSON.stringify(profile));
+  console.log("createUserIfNotExist: "+ JSON.stringify(user));
+  console.log(JSON.stringify("createUserIfNotExist: "+profile));
   await connectToDB();
 
   const existingUser = await User.findOne({ email: profile.email });

@@ -28,6 +28,7 @@ async function queryDB(userObjID: any): Promise<Response> {
     await connectToDB();
     if (userObjID) {
         const posts= await PostModel.find({ user: userObjID })
+        console.log("userObjID: "+ JSON.stringify(posts))
         return new Response(JSON.stringify(posts), {status: 200})
     }else{
         const posts= await PostModel.find({}).populate('user')

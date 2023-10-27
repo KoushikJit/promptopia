@@ -1,17 +1,21 @@
-import mongoose, { Document, Schema } from 'mongoose';
+import mongoose, { Document, Schema, model } from 'mongoose';
+
+// Create the User model
+export interface IUser {
+  username: string;
+  email: string;
+  password: string,
+  image: string,
+  // Define other fields as needed
+}
 
 // Define the User schema
-const userSchema = new Schema<User>({
-  username: {
-    type: String,
-    required: true,
-    unique: true, // Ensures username is unique
-  },
+const userSchema = new Schema<IUser & Document>({
+  username: { type: String, required: true,unique: true, },
   email: {
     type: String,
     required: true,
-    unique: true, // Ensures email is unique
-    // Regular expression to validate email format
+    unique: true,
     validate: {
       validator: (email: string) => {
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -28,19 +32,11 @@ const userSchema = new Schema<User>({
     type: String,
     required: false,
   }
-  // Other user fields
-  // ...
 });
 
-// Create the User model
-export interface User extends Document {
-  username: string;
-  email: string;
-  password: string,
-  image: string,
-  // Define other fields as needed
-}
 
-const User = mongoose.models.User || mongoose.model<User>("User", userSchema);
+const UserModel =mongoose.models.User || model<IUser & Document>('Post', userSchema);
 
-export default User;
+export default UserModel;
+
+

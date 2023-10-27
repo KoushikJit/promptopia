@@ -1,4 +1,4 @@
-import User from "@models/users";
+import UserModel from "@models/users";
 import { connectToDB } from "@utils/database";
 import { NextAuthOptions, DefaultSession, Profile, Session } from "next-auth";
 import { AdapterUser } from "next-auth/adapters";

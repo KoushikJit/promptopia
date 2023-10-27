@@ -16,11 +16,15 @@ const Feed = (props: Props) => {
   // session
   const session = useSession().data;
 
+  //states
+  const [feedPosts, setFeedPosts] = useState([])
+
   // effect
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch("api/prompt/all");
       const json = await response.json();
+      console.log(json)
       setFeedPosts(json)
     };
     console.log(JSON.stringify({
@@ -29,14 +33,13 @@ const Feed = (props: Props) => {
     fetchPosts();
   }, []);
 
-  //states
-  const [feedPosts, setFeedPosts] = useState([])
+
 
   return (
     <>
       <div className="mt-4 flex flex-col space-y-4">
         {feedPosts.map((item, index) => {
-          return <PromptCard post={item} cardKey={item._id} onTagClicked={(val) => {}} />;
+          return <PromptCard post={item} cardKey={item._id} onTagClicked={(val) => { }} />;
         })}
       </div>
     </>

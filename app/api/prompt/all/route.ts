@@ -4,7 +4,7 @@ import { connectToDB } from "@utils/database";
 async function gethandler(req: Request, res: Response) {
   console.log("GETTING prompts list for all");
   const queryDBRes= await queryDB()
-  // const posts = await queryDBRes.json();
+  const posts = await queryDBRes.json();
   console.log('got posts: '+JSON.stringify(queryDBRes))
   return new Response(JSON.stringify(queryDBRes), { status: 200 });
 }

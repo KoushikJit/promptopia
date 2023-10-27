@@ -4,6 +4,7 @@ import { dbOptions } from "./databaseOptions"
 
 let isConnected= false
 export const connectToDB = async () => {
+    console.log("connecting to db")
     mongoose.set({strictQuery: true}) 
     if(!isConnected){
         try {

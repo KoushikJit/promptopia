@@ -23,7 +23,7 @@ const PromptCard = ({ post, onTagClicked, cardKey, handleDelete, handleEdit }: P
 
   //session
   const { data: session } = useSession();
-
+  const pathname= usePathname()
 
   return (
     <>
@@ -66,7 +66,7 @@ const PromptCard = ({ post, onTagClicked, cardKey, handleDelete, handleEdit }: P
           </div>
         </div>
         {post.user && <PostedByUser user={post.user} />}
-        {(session?.user.id === post.user._id && usePathname() === '/profile') && <EditDeleteButtons handleDelete={handleDelete} handleEdit={handleEdit} post={post}/>}
+        {(session?.user.id === post.user._id && pathname=== '/profile') && <EditDeleteButtons handleDelete={handleDelete} handleEdit={handleEdit} post={post}/>}
       </div>
     </>
   );

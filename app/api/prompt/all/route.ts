@@ -2,7 +2,7 @@ import PostModel from "@models/posts";
 import { connectToDB } from "@utils/database";
 
 async function gethandler(req: Request, res: Response) {
-    console.log("GETTING prompts list for User");
+    console.log("GETTING prompts list for all");
     const posts= await (await queryDB(null)).json();
     
     return new Response(JSON.stringify(posts), { status: 200 });

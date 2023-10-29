@@ -7,7 +7,7 @@ export async function GET(req: Request, res: Response) {
   const posts = await queryDBRes.json();
   console.log("got posts: " + JSON.stringify(posts));
   console.log(posts);
-  return new Response(JSON.stringify([]), { status: 200 });
+  return new Response(JSON.stringify(posts), { status: 200 });
 }
 
 async function queryDB(): Promise<Response> {

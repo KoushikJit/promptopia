@@ -3,22 +3,22 @@ import { connectToDB } from "@utils/database";
 
 export async function GET(req: Request, res: Response) {
   console.log("GETTING prompts list for all");
-  const queryDBRes = await queryDB();
-  const posts = await queryDBRes.json();
-  console.log("got posts: " + JSON.stringify(posts));
-  console.log(posts);
-  return new Response(JSON.stringify(posts), { status: 200 });
-}
+  // const queryDBRes = await queryDB();
+  // const posts = await queryDBRes.json();
 
-async function queryDB(): Promise<Response> {
+  // posts
   try {
     await connectToDB();
-    console.log("querying db for all posts")
-    const posts = await PostModel.find({})
+    console.log("querying db for all posts");
+    const posts = await PostModel.find({});
     // .populate("user");
+    console.log("got posts: " + JSON.stringify(posts));
+    console.log(posts);
     return new Response(JSON.stringify(posts), { status: 200 });
   } catch (error) {
     console.error(error);
-    return new Response("db error occurred!", { status: 500 });
+    return new Response("ERROR OCCURRED FETCHIGN ALL POSTS!", { status: 200 });
+
   }
+  //got posts
 }

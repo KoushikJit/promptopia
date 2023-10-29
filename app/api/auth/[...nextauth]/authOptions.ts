@@ -38,10 +38,10 @@ async function createUserIfNotExist(user: AdapterUser, profile: Profile) {
   console.log(JSON.stringify("createUserIfNotExist: "+profile));
   await connectToDB();
 
-  const existingUser = await User.findOne({ email: profile.email });
+  const existingUser = await UserModel.findOne({ email: profile.email });
   if (!existingUser) {
     console.log("user doesnt exist!");
-    User.create({
+    UserModel.create({
       username: profile?.email?.substring(0, profile.email.indexOf("@")),
       email: profile?.email,
       password: "OAuth",
@@ -54,7 +54,7 @@ async function createUserIfNotExist(user: AdapterUser, profile: Profile) {
 
 async function enrichFromMongoDB(user: AdapterUser, session: Session) {
   await connectToDB();
-  const existingUser = await User.findOne({ email: session.user.email });
+  const existingUser = await UserModel.findOne({ email: session.user.email });
 
   session.user.email = existingUser.email;
   session.user.id= existingUser._id;

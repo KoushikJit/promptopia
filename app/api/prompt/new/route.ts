@@ -10,6 +10,8 @@ function gethandler(req: Request, res: NextApiResponse) {
 
 async function posthandler(req: Request, res: NextApiResponse) {
   const json = await req.json();
+  console.log(json)
+  console.log("req json: ^ >"+json)
   const saveSuccess= await (await saveToDB(json)).json();
   
   return new Response(JSON.stringify(saveSuccess),{status: 201})

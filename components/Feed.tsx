@@ -24,7 +24,7 @@ const Feed = (props: Props) => {
     const fetchPosts = async () => {
       const response = await fetch("api/prompt/all");
       const json = await response.json();
-      console.log(json)
+      console.log("feedposts received: "+ json.length)
       setFeedPosts(json)
     };
     console.log(JSON.stringify({

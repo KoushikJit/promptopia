@@ -1,10 +1,7 @@
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
 import "@styles/global.css";
-import { Session } from "next-auth";
-import { getSession, useSession } from "next-auth/react";
 import { VT323, Space_Mono } from "next/font/google";
-import { ToastContainer } from "react-toastify";
 
 export const metadata = {
   title: "Promptopia",
@@ -22,7 +19,7 @@ export default function RootLayout({
   return (
     <html className={spM.className} lang="en">
       <body>
-        <Provider >
+        <Provider>
           <Nav />
           <div className="head"></div>
           <main className="app">{children}</main>

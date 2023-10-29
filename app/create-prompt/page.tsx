@@ -28,7 +28,7 @@ const CreatePromptPage = (props: Props) => {
     const postModel: IPost = {
       prompt: post.prompt as string,
       tags: post.tags as string,
-      user: userObjID as unknown as ObjectId,
+      user: userObjID,
     };
     // send postModel to api prompt/new POST
     try {

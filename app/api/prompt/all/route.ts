@@ -5,7 +5,7 @@ export async function GET(req: Request, res: Response) {
   console.log("GETTING prompts list for all");
   const queryDBRes = await queryDB();
   const posts = await queryDBRes.json();
-  console.log("got posts: " + JSON.stringify(posts));
+  // console.log("got posts: " + JSON.stringify(posts));
   console.log(posts);
   return new Response(JSON.stringify(posts), { status: 200 });
 }

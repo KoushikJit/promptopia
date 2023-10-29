@@ -35,7 +35,7 @@ const userSchema = new Schema<IUser & Document>({
 });
 
 
-const UserModel =mongoose.models.User || model<IUser & Document>('Post', userSchema);
+const UserModel =mongoose.models.User || model<IUser & Document>('User', userSchema);
 
 export default UserModel;
 

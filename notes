@@ -1,3 +1,5 @@
 The optional chaining (?.) operator accesses an object's property or calls a function. If the object accessed or function called using this operator is undefined or null, the expression short circuits and evaluates to undefined instead of throwing an error.
 
 The conditional (ternary) operator is the only JavaScript operator that takes three operands: a condition followed by a question mark (?), then an expression to execute if the condition is truthy followed by a colon (:), and finally the expression to execute if the condition is falsy. This operator is frequently used as an alternative to an if...else statement.
+
+{"_id":{"$oid":"653dead1fe153d38c7d394e3"},"username":"bloggersaintxoxo","email":"bloggersaintxoxo@gmail.com","password":"OAuth","image":"https://lh3.googleusercontent.com/a/ACg8ocJy9sRtyly4laAj2D_U_3GJdHBWDS97Jwb3lJHJS1egew=s96-c","__v":{"$numberInt":"0"}}

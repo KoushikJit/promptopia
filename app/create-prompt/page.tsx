@@ -43,7 +43,6 @@ const CreatePromptPage = (props: Props) => {
         router.push("/");
         const json = await response.json();
         console.log(response.status);
-        console.log(json);
       }
     } catch (error) {
       console.error(error);

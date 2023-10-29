@@ -18,19 +18,19 @@ export const authOptions: NextAuthOptions = {
     })
   ],
   secret: process.env.NEXTAUTH_SECRET,
-  // callbacks: {
-  //   async signIn({ user, account, profile, email, credentials }) {
-  //     const isAllowedToSignIn = true;
-  //     console.log("sign in callback was called!")
-  //     await createUserIfNotExist(user, profile);
-  //     return true;
-  //   },
-  //   async session({ session, user }) {
-  //     // Send properties to the client, like an access_token and user id from a provider.
-  //     // enrich from mongodb storage
-  //     return await enrichFromMongoDB(user, session);
-  //   },
-  // },
+  callbacks: {
+    async signIn({ user, account, profile, email, credentials }) {
+      const isAllowedToSignIn = true;
+      console.log("sign in callback was called!")
+      await createUserIfNotExist(user, profile);
+      return true;
+    },
+    async session({ session, user }) {
+      // Send properties to the client, like an access_token and user id from a provider.
+      // enrich from mongodb storage
+      return await enrichFromMongoDB(user, session);
+    },
+  },
 };
 
 async function createUserIfNotExist(user: AdapterUser, profile: Profile) {

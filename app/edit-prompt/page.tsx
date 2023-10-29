@@ -1,7 +1,6 @@
 "use client"
 import Form from '@components/Form'
 import { Post } from '@utils/type'
-import { useSession } from 'next-auth/react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 

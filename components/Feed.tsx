@@ -22,7 +22,7 @@ const Feed = (props: Props) => {
   // effect
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch("api/prompt/all");
+      const response = await fetch("api/prompt/all", {cache: "no-cache"});
       const json = await response.json();
       console.log("feedposts received: "+ json.length)
       setFeedPosts(json)

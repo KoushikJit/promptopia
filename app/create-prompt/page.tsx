@@ -40,9 +40,9 @@ const CreatePromptPage = (props: Props) => {
         body: JSON.stringify(postModel),
       });
       if (response.ok) {
-        router.push("/");
         const json = await response.json();
         console.log(response.status);
+        router.push("/");
       }
     } catch (error) {
       console.error(error);

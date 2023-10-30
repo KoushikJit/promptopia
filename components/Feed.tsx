@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import PromptCard from "./PromptCard";
 import { Post } from "@utils/type";
 import { useSession } from "next-auth/react";
-import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 type Props = {};
